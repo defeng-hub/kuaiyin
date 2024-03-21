@@ -19,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+kuaiyin-ui/dist/
+kuaiyin-ui/node_modules/

@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "kuaiyin-user/api/user/v1;v1";
+
+service UserService{
+  rpc Login(KuaiyinUserLoginRequest) returns (KuaiyinUserLoginResponse){
+    option (google.api.http) = {
+      post:"/kuaiyin/user/login",
+      body:"*"
+    };
+  }
+  
+  rpc Register(KuaiyinUserRegisterRequest) returns(KuaiyinUserRegisterResponse){
+    option (google.api.http) = {
+      post:"/kuaiyin/user/register",
+      body:"*"
+    };
+  }
+  
+  rpc UserInfo(KuaiyinUserRequest) returns(KuaiyinUserResponse){
+    option (google.api.http) = {
+      get:"/kuaiyin/user"
+    };
+  }
+}
+
+message KuaiyinUserRegisterRequest {
+  // @gotags: json:"username"
+  string Username = 1; //注册用户名，最长32个字符
+  // @gotags: json:"password"
+  string Password = 2; //密码，最长32个字符
+}
+
+message KuaiyinUserRegisterResponse {
+  // @gotags: json:"status_code"
+  int32 StatusCode = 1; //状态码 0-成功 其他值-失败
+  // @gotags: json:"status_msg"
+  string StatusMsg = 2; //返回状态描述
+  // @gotags: json:"user_id"
+  int64 UserId = 3; //用户id
+  // @gotags: json:"token"
+  string Token = 4; //用户鉴权token
+}
+
+message KuaiyinUserLoginRequest {
+  // @gotags: json:"username"
+  string Username = 1; //注册用户名，最长32个字符
+  // @gotags: json:"password"
+  string Password = 2; //密码，最长32个字符
+}
+
+message KuaiyinUserLoginResponse {
+  // @gotags: json:"status_code"
+  int32 StatusCode = 1; //状态码 0-成功 其他值-失败
+  // @gotags: json:"status_msg"
+  string StatusMsg = 2; //返回状态描述
+  // @gotags: json:"user_id"
+  int64 UserId = 3; //用户id
+  // @gotags: json:"token"
+  string Token = 4; //用户鉴权token
+}
+
+message User {
+  // @gotags: json:"id"
+  int64 Id = 1; //用户id
+  // @gotags: json:"name"
+  string Name = 2; //用户名称
+  // @gotags: json:"follow_count"
+  int64 FollowCount = 3; //关注总数
+  // @gotags: json:"follower_count"
+  int64 FollowerCount = 4; //粉丝总数
+  // @gotags: json:"is_follow"
+  bool IsFollow = 5; //true-已关注，false-未关注
+}
+
+message KuaiyinUserRequest {
+  // @gotags: json:"user_id"
+  int64 UserId = 1; //用户id
+  // @gotags: json:"token"
+  string Token = 2; //用户鉴权token
+}
+
+message KuaiyinUserResponse {
+  // @gotags: json:"status_code"
+  int32 StatusCode = 1; //状态码 0-成功，其他值-失败
+  // @gotags: json:"status_msg"
+  string StatusMsg = 2; //返回状态描述
+  // @gotags: json:"user"
+  User User = 3; //用户信息
+}
