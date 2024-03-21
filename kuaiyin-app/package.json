@@ -1,0 +1,8 @@
+{
+  "name": "开源短视频",
+  "version": "1.0.0",
+  "dependencies": {
+    "xgplayer": "^2.32.2",
+    "xgplayer-hls": "^2.5.2"
+  }
+}
