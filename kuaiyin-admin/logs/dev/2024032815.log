@@ -1,0 +1,75 @@
+2024-03-28 15:27:38.067	INSERT INTO `sys_migration` (`version`,`apply_time`) VALUES ('1599190683659','2024-03-28 15:27:37.95')
+2024-03-28 15:27:38.723	UPDATE `sys_menu` SET `paths`='/0/2',`updated_at`='2024-03-28 15:27:38.521' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 2
+2024-03-28 15:27:38.884	UPDATE `sys_menu` SET `paths`='/0/60',`updated_at`='2024-03-28 15:27:38.724' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 60
+2024-03-28 15:27:38.995	UPDATE `sys_menu` SET `paths`='/0/459',`updated_at`='2024-03-28 15:27:38.884' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 459
+2024-03-28 15:27:39.090	UPDATE `sys_menu` SET `paths`='/0/537',`updated_at`='2024-03-28 15:27:38.996' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 537
+2024-03-28 15:27:39.437	UPDATE `sys_menu` SET `paths`='/0/2/3',`updated_at`='2024-03-28 15:27:39.248' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 3
+2024-03-28 15:27:39.697	UPDATE `sys_menu` SET `paths`='/0/2/51',`updated_at`='2024-03-28 15:27:39.544' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 51
+2024-03-28 15:27:39.890	UPDATE `sys_menu` SET `paths`='/0/2/52',`updated_at`='2024-03-28 15:27:39.802' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 52
+2024-03-28 15:27:40.239	UPDATE `sys_menu` SET `paths`='/0/2/56',`updated_at`='2024-03-28 15:27:40.033' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 56
+2024-03-28 15:27:40.567	UPDATE `sys_menu` SET `paths`='/0/2/57',`updated_at`='2024-03-28 15:27:40.363' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 57
+2024-03-28 15:27:40.777	UPDATE `sys_menu` SET `paths`='/0/2/58',`updated_at`='2024-03-28 15:27:40.696' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 58
+2024-03-28 15:27:40.978	UPDATE `sys_menu` SET `paths`='/0/2/59',`updated_at`='2024-03-28 15:27:40.89' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 59
+2024-03-28 15:27:41.181	UPDATE `sys_menu` SET `paths`='/0/2/62',`updated_at`='2024-03-28 15:27:41.08' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 62
+2024-03-28 15:27:41.359	UPDATE `sys_menu` SET `paths`='/0/2/211',`updated_at`='2024-03-28 15:27:41.28' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 211
+2024-03-28 15:27:41.519	UPDATE `sys_menu` SET `paths`='/0/2/528',`updated_at`='2024-03-28 15:27:41.441' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 528
+2024-03-28 15:27:41.726	UPDATE `sys_menu` SET `paths`='/0/2/540',`updated_at`='2024-03-28 15:27:41.63' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 540
+2024-03-28 15:27:41.929	UPDATE `sys_menu` SET `paths`='/0/2/3/43',`updated_at`='2024-03-28 15:27:41.853' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 43
+2024-03-28 15:27:42.100	UPDATE `sys_menu` SET `paths`='/0/2/3/44',`updated_at`='2024-03-28 15:27:42.015' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 44
+2024-03-28 15:27:42.307	UPDATE `sys_menu` SET `paths`='/0/2/3/45',`updated_at`='2024-03-28 15:27:42.218' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 45
+2024-03-28 15:27:42.600	UPDATE `sys_menu` SET `paths`='/0/2/3/46',`updated_at`='2024-03-28 15:27:42.44' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 46
+2024-03-28 15:27:42.865	UPDATE `sys_menu` SET `paths`='/0/2/51/220',`updated_at`='2024-03-28 15:27:42.718' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 220
+2024-03-28 15:27:43.126	UPDATE `sys_menu` SET `paths`='/0/2/51/221',`updated_at`='2024-03-28 15:27:43.025' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 221
+2024-03-28 15:27:43.540	UPDATE `sys_menu` SET `paths`='/0/2/51/222',`updated_at`='2024-03-28 15:27:43.332' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 222
+2024-03-28 15:27:43.946	UPDATE `sys_menu` SET `paths`='/0/2/51/223',`updated_at`='2024-03-28 15:27:43.7' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 223
+2024-03-28 15:27:44.253	UPDATE `sys_menu` SET `paths`='/0/2/52/224',`updated_at`='2024-03-28 15:27:44.151' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 224
+2024-03-28 15:27:44.563	UPDATE `sys_menu` SET `paths`='/0/2/52/225',`updated_at`='2024-03-28 15:27:44.356' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 225
+2024-03-28 15:27:44.816	UPDATE `sys_menu` SET `paths`='/0/2/52/226',`updated_at`='2024-03-28 15:27:44.698' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 226
+2024-03-28 15:27:45.015	UPDATE `sys_menu` SET `paths`='/0/2/52/227',`updated_at`='2024-03-28 15:27:44.896' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 227
+2024-03-28 15:27:45.279	UPDATE `sys_menu` SET `paths`='/0/2/56/228',`updated_at`='2024-03-28 15:27:45.153' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 228
+2024-03-28 15:27:45.588	UPDATE `sys_menu` SET `paths`='/0/2/56/229',`updated_at`='2024-03-28 15:27:45.429' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 229
+2024-03-28 15:27:45.839	UPDATE `sys_menu` SET `paths`='/0/2/56/230',`updated_at`='2024-03-28 15:27:45.687' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 230
+2024-03-28 15:27:46.146	UPDATE `sys_menu` SET `paths`='/0/2/56/231',`updated_at`='2024-03-28 15:27:45.994' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 231
+2024-03-28 15:27:46.352	UPDATE `sys_menu` SET `paths`='/0/2/57/232',`updated_at`='2024-03-28 15:27:46.245' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 232
+2024-03-28 15:27:46.597	UPDATE `sys_menu` SET `paths`='/0/2/57/233',`updated_at`='2024-03-28 15:27:46.488' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 233
+2024-03-28 15:27:46.857	UPDATE `sys_menu` SET `paths`='/0/2/57/234',`updated_at`='2024-03-28 15:27:46.767' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 234
+2024-03-28 15:27:47.133	UPDATE `sys_menu` SET `paths`='/0/2/57/235',`updated_at`='2024-03-28 15:27:47.018' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 235
+2024-03-28 15:27:47.427	UPDATE `sys_menu` SET `paths`='/0/2/58/236',`updated_at`='2024-03-28 15:27:47.24' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 236
+2024-03-28 15:27:47.736	UPDATE `sys_menu` SET `paths`='/0/2/58/237',`updated_at`='2024-03-28 15:27:47.532' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 237
+2024-03-28 15:27:48.043	UPDATE `sys_menu` SET `paths`='/0/2/58/238',`updated_at`='2024-03-28 15:27:47.937' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 238
+2024-03-28 15:27:48.316	UPDATE `sys_menu` SET `paths`='/0/2/58/239',`updated_at`='2024-03-28 15:27:48.199' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 239
+2024-03-28 15:27:48.638	UPDATE `sys_menu` SET `paths`='/0/2/59/240',`updated_at`='2024-03-28 15:27:48.492' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 240
+2024-03-28 15:27:49.041	UPDATE `sys_menu` SET `paths`='/0/2/59/241',`updated_at`='2024-03-28 15:27:48.831' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 241
+2024-03-28 15:27:49.270	UPDATE `sys_menu` SET `paths`='/0/2/59/242',`updated_at`='2024-03-28 15:27:49.154' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 242
+2024-03-28 15:27:49.490	UPDATE `sys_menu` SET `paths`='/0/2/59/243',`updated_at`='2024-03-28 15:27:49.372' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 243
+2024-03-28 15:27:49.731	UPDATE `sys_menu` SET `paths`='/0/60/61',`updated_at`='2024-03-28 15:27:49.638' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 61
+2024-03-28 15:27:49.921	UPDATE `sys_menu` SET `paths`='/0/60/261',`updated_at`='2024-03-28 15:27:49.823' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 261
+2024-03-28 15:27:50.162	UPDATE `sys_menu` SET `paths`='/0/60/262',`updated_at`='2024-03-28 15:27:50.042' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 262
+2024-03-28 15:27:50.424	UPDATE `sys_menu` SET `paths`='/0/60/264',`updated_at`='2024-03-28 15:27:50.295' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 264
+2024-03-28 15:27:50.776	UPDATE `sys_menu` SET `paths`='/0/2/62/244',`updated_at`='2024-03-28 15:27:50.569' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 244
+2024-03-28 15:27:51.011	UPDATE `sys_menu` SET `paths`='/0/2/62/245',`updated_at`='2024-03-28 15:27:50.91' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 245
+2024-03-28 15:27:51.200	UPDATE `sys_menu` SET `paths`='/0/2/62/246',`updated_at`='2024-03-28 15:27:51.114' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 246
+2024-03-28 15:27:51.421	UPDATE `sys_menu` SET `paths`='/0/2/62/247',`updated_at`='2024-03-28 15:27:51.321' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 247
+2024-03-28 15:27:51.879	UPDATE `sys_menu` SET `paths`='/0/2/211/212',`updated_at`='2024-03-28 15:27:51.573' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 212
+2024-03-28 15:27:52.122	UPDATE `sys_menu` SET `paths`='/0/2/211/216',`updated_at`='2024-03-28 15:27:52.015' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 216
+2024-03-28 15:27:52.326	UPDATE `sys_menu` SET `paths`='/0/2/211/212/248',`updated_at`='2024-03-28 15:27:52.202' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 248
+2024-03-28 15:27:52.547	UPDATE `sys_menu` SET `paths`='/0/2/211/212/249',`updated_at`='2024-03-28 15:27:52.464' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 249
+2024-03-28 15:27:52.754	UPDATE `sys_menu` SET `paths`='/0/2/211/216/250',`updated_at`='2024-03-28 15:27:52.65' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 250
+2024-03-28 15:27:52.924	UPDATE `sys_menu` SET `paths`='/0/2/211/216/251',`updated_at`='2024-03-28 15:27:52.84' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 251
+2024-03-28 15:27:53.113	UPDATE `sys_menu` SET `paths`='/0/459/460',`updated_at`='2024-03-28 15:27:53.031' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 460
+2024-03-28 15:27:53.279	UPDATE `sys_menu` SET `paths`='/0/459/471',`updated_at`='2024-03-28 15:27:53.192' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 471
+2024-03-28 15:27:53.716	UPDATE `sys_menu` SET `paths`='/0/459/460/461',`updated_at`='2024-03-28 15:27:53.4' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 461
+2024-03-28 15:27:53.879	UPDATE `sys_menu` SET `paths`='/0/459/460/462',`updated_at`='2024-03-28 15:27:53.798' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 462
+2024-03-28 15:27:54.066	UPDATE `sys_menu` SET `paths`='/0/459/460/463',`updated_at`='2024-03-28 15:27:53.967' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 463
+2024-03-28 15:27:54.288	UPDATE `sys_menu` SET `paths`='/0/459/460/464',`updated_at`='2024-03-28 15:27:54.186' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 464
+2024-03-28 15:27:54.497	UPDATE `sys_menu` SET `paths`='/0/2/528/529',`updated_at`='2024-03-28 15:27:54.413' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 529
+2024-03-28 15:27:54.697	UPDATE `sys_menu` SET `paths`='/0/2/528/531',`updated_at`='2024-03-28 15:27:54.595' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 531
+2024-03-28 15:27:54.926	UPDATE `sys_menu` SET `paths`='/0/537/269',`updated_at`='2024-03-28 15:27:54.803' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 269
+2024-03-28 15:27:55.128	UPDATE `sys_menu` SET `paths`='/0/2/540/542',`updated_at`='2024-03-28 15:27:55.024' WHERE `sys_menu`.`deleted_at` IS NULL AND `menu_id` = 542
+2024-03-28 15:27:55.208	INSERT INTO `sys_migration` (`version`,`apply_time`) VALUES ('1653638869132','2024-03-28 15:27:55.129')
+2024-03-28 15:27:55.799	INSERT INTO `sys_migration` (`version`,`apply_time`) VALUES ('1702549359563','2024-03-28 15:27:55.711')
+2024-03-28 15:28:22.154	INSERT INTO `sys_api` (`handle`,`title`,`path`,`action`,`type`,`created_at`,`updated_at`,`deleted_at`,`create_by`,`update_by`) VALUES ('go-admin/app/admin/apis.System.GenerateCaptchaHandler-fm','获取验证码','/api/v1/captcha','GET','','2024-03-28 15:28:22.009','2024-03-28 15:28:22.009',NULL,0,0)
+2024-03-28 15:28:24.514	INSERT INTO `sys_api` (`handle`,`title`,`path`,`action`,`type`,`created_at`,`updated_at`,`deleted_at`,`create_by`,`update_by`) VALUES ('github.com/swaggo/gin-swagger.CustomWrapHandler.func1','','/swagger/admin/*any','GET','','2024-03-28 15:28:24.378','2024-03-28 15:28:24.378',NULL,0,0)
+2024-03-28 15:28:28.283	INSERT INTO `sys_api` (`handle`,`title`,`path`,`action`,`type`,`created_at`,`updated_at`,`deleted_at`,`create_by`,`update_by`) VALUES ('go-admin/app/admin/apis.SysUser.UpdatePwd-fm','修改密码','/api/v1/user/pwd/set','PUT','','2024-03-28 15:28:28.118','2024-03-28 15:28:28.118',NULL,0,0)
+2024-03-28 15:28:30.132	INSERT INTO `sys_api` (`handle`,`title`,`path`,`action`,`type`,`created_at`,`updated_at`,`deleted_at`,`create_by`,`update_by`) VALUES ('go-admin/app/admin/apis.SysDept.Delete-fm','删除部门','/api/v1/dept','DELETE','','2024-03-28 15:28:29.97','2024-03-28 15:28:29.97',NULL,0,0)
+2024-03-28 15:28:30.770	INSERT INTO `sys_api` (`handle`,`title`,`path`,`action`,`type`,`created_at`,`updated_at`,`deleted_at`,`create_by`,`update_by`) VALUES ('go-admin/app/admin/apis.SysPost.Delete-fm','删除岗位','/api/v1/post','DELETE','','2024-03-28 15:28:30.562','2024-03-28 15:28:30.562',NULL,0,0)
