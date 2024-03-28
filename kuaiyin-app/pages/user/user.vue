@@ -178,6 +178,8 @@
 				uni.navigateTo({
 					// url: '../index/index'
 					url: '../nvueSwiper/nvueSwiper'
+					// url: '../previewVideo/previewVideo'
+					// url: '../selectVideo/selectVideo'
 				})
 			}
 		}

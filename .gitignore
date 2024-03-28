@@ -22,3 +22,5 @@ go.work
 
 kuaiyin-ui/dist/
 kuaiyin-ui/node_modules/
+kuaiyin-app/unpackage/
+
