@@ -1,0 +1,2 @@
+2023-12-14 12:14:14.260	UPDATE `sys_job` SET `entry_id`=0 WHERE entry_id > 0
+2023-12-14 12:21:20.478	INSERT INTO `sys_user` (`username`,`password`,`nick_name`,`phone`,`role_id`,`salt`,`avatar`,`sex`,`email`,`dept_id`,`post_id`,`remark`,`status`,`create_by`,`update_by`,`created_at`,`updated_at`,`deleted_at`) VALUES ('test','$2a$10$Bw/WJxzvHc6H6wnPmh5ca.ukU7PnAKrK1WqAaTbDOCsFplO/PazwG','测试用户','13456798791',1,'','','2','1@1.com',10,0,'','2',1,0,'2023-12-14 12:21:20.35','2023-12-14 12:21:20.35',NULL)

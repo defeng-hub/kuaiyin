@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package helloworld.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "kuaiyin-video/api/helloworld/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.helloworld.v1";
+option java_outer_classname = "HelloworldProtoV1";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/helloworld/{name}"
+    };
+  }
+  
+  rpc Video(KuaiyinVideoRequest) returns (KuaiyinVideoResponse){
+    option (google.api.http) = {
+      post:"/kuaiyin/video/get",
+      body:"*"
+    };
+  }
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+
+message KuaiyinVideoRequest {
+  string username = 1;
+}
+
+message KuaiyinVideoResponse {
+	string id = 1;
+	string username = 2;
+	string href = 3;
+	string title = 4;
+	string msg = 5;
+	string state = 6;
+	int64 like = 7;
+	int64 like_n = 8;
+	int64 sms_n = 9;
+	string src = 10;
+	int64 playNumber = 11;
+	bool playIng = 13;
+	bool isShowimage = 14;
+	bool isShowProgressBarTime = 15;
+	bool isplay = 16;
+	string userID = 17;
+}

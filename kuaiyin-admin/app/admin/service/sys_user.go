@@ -83,27 +83,6 @@ func (e *SysUser) Insert(c *dto.SysUserInsertReq) error {
 	return nil
 }
 
-// Insert 创建SysUser对象
-func (e *SysUser) Register(c *dto.SysUserRegisterReq) error {
-	var err error
-	var data models.SysUser
-	var i int64
-	err = e.Orm.Model(&data).Where("username = ?", c.Username).Count(&i).Error
-	if err != nil {
-		return err
-	}
-	if i > 0 {
-		err1 := errors.New("用户名已存在！")
-		return err1
-	}
-	c.Generate(&data)
-	err = e.Orm.Create(&data).Error
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
 // Update 修改SysUser对象
 func (e *SysUser) Update(c *dto.SysUserUpdateReq, p *actions.DataPermission) error {
 	var err error

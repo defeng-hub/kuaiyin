@@ -1,11 +1,11 @@
 settings:
   application:
     # dev开发环境 test测试环境 prod线上环境
-    mode: dev
+    mode: test
     # 服务器ip，默认使用 0.0.0.0
     host: 0.0.0.0
     # 服务名称
-    name: baseApp
+    name: testApp
     # 端口号
     port: 8000 # 服务端口号
     readtimeout: 1
@@ -25,13 +25,13 @@ settings:
     # token 密钥，生产环境时及的修改
     secret: go-admin
     # token 过期时间 单位：秒
-    timeout: 3600
+    timeout: 86400
   database:
     # 数据库类型 mysql, sqlite3, postgres, sqlserver
     # sqlserver: sqlserver://用户名:密码@地址?database=数据库名
     driver: mysql
     # 数据库连接字符串 mysql 缺省信息 charset=utf8&parseTime=True&loc=Local&timeout=1000ms
-    source: root:123456@tcp(172.24.240.1:3306)/demotable?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
+    source: root:big-docdoc@tcp(122.225.105.173:31279)/demo?charset=utf8&parseTime=True&loc=Local&timeout=1000ms
 #  databases:
 #    'locaohost:8000':
 #      driver: mysql
@@ -44,17 +44,27 @@ settings:
     # 代码生成读取的数据库名称
     dbname: dbname
     # 代码生成是使用前端代码存放位置，需要指定到src文件夹，相对路径
-    frontpath: ../go-admin-ui/src
+    frontpath: ../ui/src
   extend: # 扩展项使用说明
     demo:
       name: data
+    ftpsync:
+      side: internet
+      host: 60.208.83.80:12006
+      ftpuser: CXFX
+      password: CXFX@yw2023
+      localdir: 
+      #要监听的文件目录列表
+      watchdir: 
+        - static/uploadfile/test/
+        - logs/test/
   cache:
 #    redis:
 #      addr: 127.0.0.1:6379
 #      password: xxxxxx
 #      db: 2
     # key存在即可
-    memory: '' 
+    memory: ''
   queue:
     memory:
       poolSize: 100

@@ -1,0 +1,1 @@
+2023-12-14 13:24:25.392	UPDATE `sys_user` SET `username`='test',`nick_name`='测试用户',`phone`='13456798790',`role_id`=1,`sex`='2',`email`='1@1.com',`dept_id`=10,`status`='2',`create_by`=1,`created_at`='2023-12-14 12:21:20.35',`updated_at`='2023-12-14 13:24:25.252' WHERE user_id = 2 AND `sys_user`.`deleted_at` IS NULL AND `user_id` = 2

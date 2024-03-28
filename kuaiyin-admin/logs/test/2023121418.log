@@ -1,0 +1,1 @@
+2023-12-14 18:26:09.259	INSERT INTO `sys_migration` (`version`,`apply_time`) VALUES ('1702549359563','2023-12-14 18:26:09.161')

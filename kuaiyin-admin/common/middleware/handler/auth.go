@@ -1,19 +1,8 @@
 package handler
 
 import (
-	"bytes"
-	"encoding/json"
-	"errors"
-	"fmt"
-	"github.com/go-admin-team/go-admin-core/sdk/pkg/captcha"
-	"github.com/go-admin-team/go-admin-core/sdk/pkg/response"
 	"go-admin/app/admin/models"
-	"go-admin/app/admin/service"
-	"go-admin/app/admin/service/dto"
-	"go-admin/app/ssoSDK"
 	"go-admin/common"
-	"gorm.io/gorm"
-	"io"
 	"net/http"
 
 	"go-admin/common/global"
@@ -23,8 +12,10 @@ import (
 	"github.com/go-admin-team/go-admin-core/sdk/api"
 	"github.com/go-admin-team/go-admin-core/sdk/config"
 	"github.com/go-admin-team/go-admin-core/sdk/pkg"
+	"github.com/go-admin-team/go-admin-core/sdk/pkg/captcha"
 	jwt "github.com/go-admin-team/go-admin-core/sdk/pkg/jwtauth"
 	"github.com/go-admin-team/go-admin-core/sdk/pkg/jwtauth/user"
+	"github.com/go-admin-team/go-admin-core/sdk/pkg/response"
 	"github.com/mssola/user_agent"
 )
 
@@ -73,35 +64,6 @@ func IdentityHandler(c *gin.Context) interface{} {
 // @Success 200 {string} string "{"code": 200, "expire": "2019-08-07T12:45:48+08:00", "token": ".eyJleHAiOjE1NjUxNTMxNDgsImlkIjoiYWRtaW4iLCJvcmlnX2lhdCI6MTU2NTE0OTU0OH0.-zvzHvbg0A" }"
 // @Router /api/v1/login [post]
 func Authenticator(c *gin.Context) (interface{}, error) {
-	var err error
-	// 添加登录方式
-	//1. 账户密码登录
-	//2. 通过sso,获取的警官号登录，
-	body, err := io.ReadAll(c.Request.Body)
-	if err != nil {
-		return nil, jwt.ErrMissingLoginValues
-	}
-	var loginType LoginTypeDto
-
-	err = json.Unmarshal(body, &loginType)
-	if err != nil {
-		return nil, jwt.ErrMissingLoginValues
-	}
-	c.Request.Body = io.NopCloser(bytes.NewBuffer(body))
-
-	switch loginType.LoginType {
-	case SSO:
-		return SSOLogin(c, loginType.Overload)
-	case Normal:
-		return NormalLogin(c)
-	default:
-		return NormalLogin(c)
-	}
-}
-
-func NormalLogin(c *gin.Context) (interface{}, error) {
-	var err error
-
 	log := api.GetRequestLogger(c)
 	db, err := pkg.GetOrm(c)
 	if err != nil {
@@ -110,6 +72,7 @@ func NormalLogin(c *gin.Context) (interface{}, error) {
 		return nil, jwt.ErrFailedAuthentication
 	}
 
+	var loginVals Login
 	var status = "2"
 	var msg = "登录成功"
 	var username = ""
@@ -117,120 +80,33 @@ func NormalLogin(c *gin.Context) (interface{}, error) {
 		LoginLogToDB(c, status, msg, username)
 	}()
 
-	var loginVals Login
 	if err = c.ShouldBind(&loginVals); err != nil {
 		username = loginVals.Username
 		msg = "数据解析失败"
 		status = "1"
-		return nil, jwt.ErrFailedAuthentication
-	}
 
+		return nil, jwt.ErrMissingLoginValues
+	}
 	if config.ApplicationConfig.Mode != "dev" {
 		if !captcha.Verify(loginVals.UUID, loginVals.Code, true) {
 			username = loginVals.Username
 			msg = "验证码错误"
 			status = "1"
 
-			return nil, jwt.ErrFailedAuthentication
+			return nil, jwt.ErrInvalidVerificationode
 		}
 	}
-
-	userT, role, e := loginVals.GetUser(db)
+	sysUser, role, e := loginVals.GetUser(db)
 	if e == nil {
 		username = loginVals.Username
-		return map[string]interface{}{"user": userT, "role": role}, nil
+
+		return map[string]interface{}{"user": sysUser, "role": role}, nil
 	} else {
 		msg = "登录失败"
 		status = "1"
 		log.Warnf("%s login failed!", loginVals.Username)
 	}
 	return nil, jwt.ErrFailedAuthentication
-}
-
-func RegisterUser(info *ssoSDK.UserInfo, db *gorm.DB) error {
-	s := service.SysUser{}
-	req := dto.SysUserRegisterReq{}
-	s.Orm = db
-	req.SetCreateBy(0)
-	req.NickName = info.UserName
-	req.Username = info.UserName
-	// 设置创建人
-	req.PcNumber = info.PcNumber
-	req.RoleId = 2   //role 民警管理员
-	req.DeptId = 11  //民警机构
-	req.Status = "2" //default is enable
-
-	err := s.Register(&req)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-func SSOLogin(c *gin.Context, loginType bool) (interface{}, error) {
-	var ticket string
-	var err error
-	loginErr := errors.New("sso login fail")
-	//test
-	ssoClient := ssoSDK.NewSsoClient(common.GetClientIP(c))
-	ticket, err = ssoClient.FindTicket()
-	if loginType && ticket == "" { //慢登录仍然拿不到ticket，提示登录失败
-		return nil, errors.New("overload ticket")
-	}
-	if err != nil || ticket == "" {
-		domain := "http://10.48.105.118:88/ssologin?overload=true" //TODO: 待改为线上实际的地址
-		url := ssoClient.RedirectUrl(domain)
-		return nil, errors.New(fmt.Sprintf("get ticket failed:[%s]", url))
-	}
-	ssoUserInfo, err := ssoClient.UserInfo()
-	if err != nil {
-		return nil, loginErr
-	}
-	log := api.GetRequestLogger(c)
-	db, err := pkg.GetOrm(c)
-	if err != nil {
-		log.Errorf("get db error, %s", err.Error())
-		response.Error(c, 500, err, "数据库连接获取失败")
-		return nil, err
-	}
-
-	var status = "2"
-	var msg = "sso登录成功"
-	var username = ""
-	defer func() {
-		LoginLogToDB(c, status, msg, username)
-	}()
-
-	var loginVals LoginPcNumberDto
-	loginVals.PcNumber = ssoUserInfo.PcNumber
-
-	userT, role, err := loginVals.GetUserByPcNumber(db)
-	if err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			//创建逻辑
-			err1 := RegisterUser(ssoUserInfo, db)
-			if err1 != nil {
-				return nil, errors.Join(loginErr, err1)
-			} else {
-				//	注册成功了
-				userT1, role1, err2 := loginVals.GetUserByPcNumber(db)
-				if err2 != nil {
-					username = loginVals.PcNumber
-					msg = "登录失败"
-					status = "1"
-					return nil, errors.Join(loginErr, err1)
-				}
-				return map[string]interface{}{"user": userT1, "role": role1}, nil
-			}
-		} else {
-			username = loginVals.PcNumber
-			msg = "sso登录失败:该警号不存在"
-			status = "1"
-			return nil, loginErr
-		}
-	} else {
-		return map[string]interface{}{"user": userT, "role": role}, nil
-	}
 }
 
 // LoginLogToDB Write log to database

@@ -7,7 +7,6 @@ main.exe
 go-admin
 go-admin.exe
 temp/
-logs/
 !temp
 vendor
 config/settings.dev.yml
@@ -21,5 +20,4 @@ cmd/migrate/migration/version-local/*
 
 # go sum
 go.sum
-g
-go-kuaiyin
+config/settings.deva.yml
