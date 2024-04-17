@@ -1,0 +1,569 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/douyin/comment/action/": {
+            "post": {
+                "description": "登录用户对视频进行评论。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "互动接口"
+                ],
+                "summary": "用户评论操作",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "action_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "comment_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "comment_text",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "token",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "video_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/comment/list/": {
+            "get": {
+                "description": "查看视频的所有评论，按发布时间倒序。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "互动接口"
+                ],
+                "summary": "获取视频评论",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "token",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "video_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/favorite/action/": {
+            "post": {
+                "description": "登录用户对视频的点赞和取消点赞操作。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "互动接口"
+                ],
+                "summary": "用户点赞操作",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "action_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "token",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "video_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/favorite/list/": {
+            "get": {
+                "description": "登录用户的所有点赞视频。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "互动接口"
+                ],
+                "summary": "获取用户点赞列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "token",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "user_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/feed": {
+            "get": {
+                "description": "获取最近新发的30条视频",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "视频接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "可选参数，限制返回视频的最新投稿时间戳，精确到秒，不填表示当前时间",
+                        "name": "latest_time",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/message/action/": {
+            "post": {
+                "description": "登录用户对消息的相关操作，目前只支持消息发送",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "消息接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "action_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "content",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "from_user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "to_user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/message/chat/": {
+            "get": {
+                "description": "当前登录用户和其他指定用户的聊天消息记录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "消息接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "from_user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "pre_msg_time",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "to_user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/publish/action/": {
+            "post": {
+                "description": "视频投稿",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "视频接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "file",
+                        "name": "data",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "title",
+                        "name": "title",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "user_id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/publish/list/": {
+            "get": {
+                "description": "获取用户发表的视频列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "视频接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "token",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "user_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/relation/action/": {
+            "post": {
+                "description": "登录用户对其他用户进行关注或取消关注。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "社交接口"
+                ],
+                "summary": "关系操作",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "action_type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "from_user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "to_user_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/relation/follow/list/": {
+            "get": {
+                "description": "登录用户关注的所有用户列表。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "社交接口"
+                ],
+                "summary": "用户关注列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/relation/follower/list/": {
+            "get": {
+                "description": "所有关注登录用户的粉丝列表。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "社交接口"
+                ],
+                "summary": "用户粉丝列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/relation/friend/list/": {
+            "get": {
+                "description": "所有与登录用户互相关注的用户列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "社交接口"
+                ],
+                "summary": "用户好友列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/user/": {
+            "get": {
+                "description": "获取用户基础信息。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "基础接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户鉴权token",
+                        "name": "token",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/user/login/": {
+            "post": {
+                "description": "登录。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "基础接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "注册昵称",
+                        "name": "username",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "注册密码",
+                        "name": "password",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/douyin/user/register/": {
+            "post": {
+                "description": "初始注册。",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "基础接口"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "注册昵称",
+                        "name": "username",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "注册密码",
+                        "name": "password",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
+}

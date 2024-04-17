@@ -3,8 +3,7 @@
 
 openapi: 3.0.3
 info:
-    title: Greeter API
-    description: The greeting service definition.
+    title: ""
     version: 0.0.1
 paths:
     /helloworld/{name}:
@@ -26,16 +25,16 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/helloworld.v1.HelloReply'
-    /kuaiyin/video/get:
+    /video/get:
         post:
             tags:
                 - Greeter
-            operationId: Greeter_Video
+            operationId: Greeter_GetVideo
             requestBody:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/helloworld.v1.KuaiyinVideoRequest'
+                            $ref: '#/components/schemas/video.v1.GetVideoRequest'
                 required: true
             responses:
                 "200":
@@ -43,7 +42,7 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/helloworld.v1.KuaiyinVideoResponse'
+                                $ref: '#/components/schemas/video.v1.GetVideoReply'
 components:
     schemas:
         helloworld.v1.HelloReply:
@@ -52,45 +51,17 @@ components:
                 message:
                     type: string
             description: The response message containing the greetings
-        helloworld.v1.KuaiyinVideoRequest:
+        video.v1.GetVideoReply:
             type: object
             properties:
-                username:
+                Title:
                     type: string
-        helloworld.v1.KuaiyinVideoResponse:
+                    description: '@gotags: json:"titlet"'
+        video.v1.GetVideoRequest:
             type: object
-            properties:
-                id:
-                    type: string
-                username:
-                    type: string
-                href:
-                    type: string
-                title:
-                    type: string
-                msg:
-                    type: string
-                state:
-                    type: string
-                like:
-                    type: string
-                likeN:
-                    type: string
-                smsN:
-                    type: string
-                src:
-                    type: string
-                playNumber:
-                    type: string
-                playIng:
-                    type: boolean
-                isShowimage:
-                    type: boolean
-                isShowProgressBarTime:
-                    type: boolean
-                isplay:
-                    type: boolean
-                userID:
-                    type: string
+            properties: {}
 tags:
     - name: Greeter
+      description: The greeting service definition.
+    - name: Greeter
+      description: The greeting service definition.

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package video.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "kuaiyin-video/api/video/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.video.v1";
+option java_outer_classname = "VideoProtoV1";
+
+// The greeting service definition.
+service Greeter {
+    rpc GetVideo (GetVideoRequest) returns (GetVideoReply) {
+        option (google.api.http) = {
+            post: "/video/get"
+            body:"*"
+        };
+    }
+}
+
+message GetVideoRequest {
+    
+}
+message GetVideoReply {
+    // @gotags: json:"titlet"
+    string Title = 1;
+}

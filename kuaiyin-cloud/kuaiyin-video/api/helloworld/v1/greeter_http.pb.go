@@ -20,18 +20,15 @@ var _ = binding.EncodeURL
 const _ = http.SupportPackageIsVersion1
 
 const OperationGreeterSayHello = "/helloworld.v1.Greeter/SayHello"
-const OperationGreeterVideo = "/helloworld.v1.Greeter/Video"
 
 type GreeterHTTPServer interface {
 	// SayHello Sends a greeting
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
-	Video(context.Context, *KuaiyinVideoRequest) (*KuaiyinVideoResponse, error)
 }
 
 func RegisterGreeterHTTPServer(s *http.Server, srv GreeterHTTPServer) {
 	r := s.Route("/")
 	r.GET("/helloworld/{name}", _Greeter_SayHello0_HTTP_Handler(srv))
-	r.POST("/kuaiyin/video/get", _Greeter_Video0_HTTP_Handler(srv))
 }
 
 func _Greeter_SayHello0_HTTP_Handler(srv GreeterHTTPServer) func(ctx http.Context) error {
@@ -56,31 +53,8 @@ func _Greeter_SayHello0_HTTP_Handler(srv GreeterHTTPServer) func(ctx http.Contex
 	}
 }
 
-func _Greeter_Video0_HTTP_Handler(srv GreeterHTTPServer) func(ctx http.Context) error {
-	return func(ctx http.Context) error {
-		var in KuaiyinVideoRequest
-		if err := ctx.Bind(&in); err != nil {
-			return err
-		}
-		if err := ctx.BindQuery(&in); err != nil {
-			return err
-		}
-		http.SetOperation(ctx, OperationGreeterVideo)
-		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
-			return srv.Video(ctx, req.(*KuaiyinVideoRequest))
-		})
-		out, err := h(ctx, &in)
-		if err != nil {
-			return err
-		}
-		reply := out.(*KuaiyinVideoResponse)
-		return ctx.Result(200, reply)
-	}
-}
-
 type GreeterHTTPClient interface {
 	SayHello(ctx context.Context, req *HelloRequest, opts ...http.CallOption) (rsp *HelloReply, err error)
-	Video(ctx context.Context, req *KuaiyinVideoRequest, opts ...http.CallOption) (rsp *KuaiyinVideoResponse, err error)
 }
 
 type GreeterHTTPClientImpl struct {
@@ -98,19 +72,6 @@ func (c *GreeterHTTPClientImpl) SayHello(ctx context.Context, in *HelloRequest, 
 	opts = append(opts, http.Operation(OperationGreeterSayHello))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return &out, nil
-}
-
-func (c *GreeterHTTPClientImpl) Video(ctx context.Context, in *KuaiyinVideoRequest, opts ...http.CallOption) (*KuaiyinVideoResponse, error) {
-	var out KuaiyinVideoResponse
-	pattern := "/kuaiyin/video/get"
-	path := binding.EncodeURL(pattern, in, false)
-	opts = append(opts, http.Operation(OperationGreeterVideo))
-	opts = append(opts, http.PathTemplate(pattern))
-	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
 	if err != nil {
 		return nil, err
 	}

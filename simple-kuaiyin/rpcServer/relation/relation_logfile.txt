@@ -1,0 +1,2 @@
+WARNING: sonic only supports Go1.16~1.20 && CPU amd64, but your environment is not suitable
+2024/04/17 10:09:52.224257 server.go:83: [Info] KITEX: server listen at addr=[::]:8082

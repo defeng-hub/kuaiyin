@@ -44,8 +44,3 @@ func (uc *GreeterUsecase) CreateGreeter(ctx context.Context, g *Greeter) (*Greet
 	uc.log.WithContext(ctx).Infof("CreateGreeter: %v", g.Hello)
 	return uc.repo.Save(ctx, g)
 }
-
-// 读取数据库
-func (uc *GreeterUsecase) Video(ctx context.Context, g *Greeter) (string, error) {
-	return "hello", nil
-}

@@ -27,8 +27,3 @@ func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1
 	}
 	return &v1.HelloReply{Message: "Hello " + g.Hello}, nil
 }
-
-func (s *GreeterService) Video(ctx context.Context, in *v1.KuaiyinVideoRequest) (*v1.KuaiyinVideoResponse, error) {
-
-	return &v1.KuaiyinVideoResponse{Id: "1"}, nil
-}
