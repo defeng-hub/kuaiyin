@@ -53,7 +53,7 @@ func FindVideoListByUserId(userId int) ([]*model.Video, error) {
 	errGet, _ := cache.Exists(context.Background(), userPublishVideoList(userId)).Result()
 	//最终返回的video列表
 	resVideoList := make([]*model.Video, 0)
-	if errGet > 0 {
+	if errGet > 100000 { //始终走，mysql
 		// 缓存存在，直接从缓存中取出数据返回
 		videoJsons, err := cache.LRange(context.Background(), userPublishVideoList(userId), 0, -1).Result()
 		log.Printf("videoJsons.len = %+v\n", len(videoJsons))
