@@ -22,10 +22,8 @@ type Videos struct {
 // @Summary 获取Videos列表
 // @Description 获取Videos列表
 // @Tags Videos
-// @Param authorId query int64 false "作者ID"
-// @Param playUrl query string false "视频地址"
-// @Param coverUrl query string false "图片地址"
-// @Param title query string false "标题"
+// @Param authorId query int64 false "作者id"
+// @Param title query string false "视频标题"
 // @Param pageSize query int false "页条数"
 // @Param pageIndex query int false "页码"
 // @Success 200 {object} response.Response{data=response.Page{list=[]models.Videos}} "{"code": 200, "data": [...]}"

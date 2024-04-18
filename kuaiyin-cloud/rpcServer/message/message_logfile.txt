@@ -1,50 +1,9 @@
 WARNING: sonic only supports Go1.16~1.20 && CPU amd64, but your environment is not suitable
 
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[1.044ms] [34;1m[rows:-][0m SELECT DATABASE()
+2024/04/18 10:50:55 [35m/Users/Apple/defeng/kuaiyin/kuaiyin-cloud/common/mysql/conn.go:17
+[0m[31m[error] [0mfailed to initialize database, got error dial tcp [::1]:3306: connect: connection refused
+panic: dial tcp [::1]:3306: connect: connection refused
 
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[7.785ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'douyin%' ORDER BY SCHEMA_NAME='douyin' DESC,SCHEMA_NAME limit 1
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[3.846ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'douyin' AND table_name = 'messages' AND table_type = 'BASE TABLE'
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.612ms] [34;1m[rows:-][0m SELECT DATABASE()
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[3.331ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'douyin%' ORDER BY SCHEMA_NAME='douyin' DESC,SCHEMA_NAME limit 1
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[2.611ms] [34;1m[rows:-][0m SELECT * FROM `messages` LIMIT 1
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[3.628ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'douyin' AND table_name = 'messages' ORDER BY ORDINAL_POSITION
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.327ms] [34;1m[rows:-][0m SELECT DATABASE()
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.661ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'douyin%' ORDER BY SCHEMA_NAME='douyin' DESC,SCHEMA_NAME limit 1
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[1.210ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'douyin' AND table_name = 'messages' AND index_name = 'idx_userid_from'
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.266ms] [34;1m[rows:-][0m SELECT DATABASE()
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.635ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'douyin%' ORDER BY SCHEMA_NAME='douyin' DESC,SCHEMA_NAME limit 1
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.911ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'douyin' AND table_name = 'messages' AND index_name = 'idx_userid_to'
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.290ms] [34;1m[rows:-][0m SELECT DATABASE()
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[0.679ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'douyin%' ORDER BY SCHEMA_NAME='douyin' DESC,SCHEMA_NAME limit 1
-
-2024/04/17 10:09:42 [32m/Users/Apple/defeng/doyin/simple-douyin/rpcServer/message/main.go:37
-[0m[33m[1.076ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.statistics WHERE table_schema = 'douyin' AND table_name = 'messages' AND index_name = 'idx_time'
-2024/04/17 10:09:42.536511 server.go:83: [Info] KITEX: server listen at addr=[::]:8083
+goroutine 1 [running]:
+main.init.0()
+	/Users/Apple/defeng/kuaiyin/kuaiyin-cloud/rpcServer/message/main.go:35 +0x1bc

@@ -1,2 +1,9 @@
 WARNING: sonic only supports Go1.16~1.20 && CPU amd64, but your environment is not suitable
-2024/04/17 10:09:52.224257 server.go:83: [Info] KITEX: server listen at addr=[::]:8082
+
+2024/04/18 10:50:55 [35m/Users/Apple/defeng/kuaiyin/kuaiyin-cloud/common/mysql/conn.go:17
+[0m[31m[error] [0mfailed to initialize database, got error dial tcp [::1]:3306: connect: connection refused
+panic: dial tcp [::1]:3306: connect: connection refused
+
+goroutine 1 [running]:
+github.com/douyin/models.init.0()
+	/Users/Apple/defeng/kuaiyin/kuaiyin-cloud/models/relation.go:24 +0x68

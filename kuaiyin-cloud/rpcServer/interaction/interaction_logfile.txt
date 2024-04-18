@@ -1,26 +1,9 @@
 WARNING: sonic only supports Go1.16~1.20 && CPU amd64, but your environment is not suitable
 
-2024/04/17 10:11:55 [32m/Users/Apple/defeng/doyin/simple-douyin/common/bloom/load.go:19
-[0m[33m[1.058ms] [34;1m[rows:0][0m SELECT id from videos
-
-2024/04/17 10:11:55 [32m/Users/Apple/defeng/doyin/simple-douyin/common/bloom/load.go:26
-[0m[33m[0.625ms] [34;1m[rows:0][0m SELECT id from comments
-
-2024/04/17 10:11:55 [32m/Users/Apple/defeng/doyin/simple-douyin/common/bloom/load.go:33
-[0m[33m[0.734ms] [34;1m[rows:1][0m SELECT id from users
-
-2024/04/17 10:11:55 [32m/Users/Apple/defeng/doyin/simple-douyin/common/bloom/load.go:40
-[0m[33m[2.332ms] [34;1m[rows:1][0m SELECT user_name from users
-写入了一条消息service[messageService], value[{"Type":2,"Value":"Interaction 服务启动"}], top[logger]
-127.0.0.1:9092
-写入了一条消息service[messageService], value[{"Type":2,"Value":"Interaction 服务启动"}], top[logger]
-127.0.0.1:9092
-写入了一条消息service[messageService], value[{"Type":2,"Value":"Interaction 服务启动"}], top[logger]
-127.0.0.1:9092
-2024/04/17 10:11:59.512161 server.go:81: [Error] KITEX: server listen failed, addr=0.0.0.0:8085 error=listen tcp 0.0.0.0:8085: bind: address already in use
-2024/04/17 10:11:59.512217 server.go:236: [Error] KITEX: server start error: error=listen tcp 0.0.0.0:8085: bind: address already in use
-panic: listen tcp 0.0.0.0:8085: bind: address already in use
+2024/04/18 10:53:06 [35m/Users/Apple/defeng/kuaiyin/kuaiyin-cloud/common/mysql/conn.go:17
+[0m[31m[error] [0mfailed to initialize database, got error Error 1049 (42000): Unknown database 'douyin'
+panic: Error 1049 (42000): Unknown database 'douyin'
 
 goroutine 1 [running]:
-main.main()
-	/Users/Apple/defeng/doyin/simple-douyin/rpcServer/interaction/main.go:33 +0x250
+github.com/douyin/models.init.0()
+	/Users/Apple/defeng/kuaiyin/kuaiyin-cloud/models/relation.go:24 +0x68

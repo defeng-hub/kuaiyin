@@ -9,10 +9,8 @@ import (
 
 type VideosGetPageReq struct {
 	dto.Pagination     `search:"-"`
-    AuthorId int64 `form:"authorId"  search:"type:exact;column:author_id;table:videos" comment:"作者ID"`
-    PlayUrl string `form:"playUrl"  search:"type:exact;column:play_url;table:videos" comment:"视频地址"`
-    CoverUrl string `form:"coverUrl"  search:"type:exact;column:cover_url;table:videos" comment:"图片地址"`
-    Title string `form:"title"  search:"type:contains;column:title;table:videos" comment:"标题"`
+    AuthorId int64 `form:"authorId"  search:"type:exact;column:author_id;table:videos" comment:"作者id"`
+    Title string `form:"title"  search:"type:contains;column:title;table:videos" comment:"视频标题"`
     VideosOrder
 }
 
@@ -36,12 +34,12 @@ func (m *VideosGetPageReq) GetNeedSearch() interface{} {
 
 type VideosInsertReq struct {
     Id int `json:"-" comment:""` // 
-    AuthorId int64 `json:"authorId" comment:"作者ID"`
+    AuthorId int64 `json:"authorId" comment:"作者id"`
     PlayUrl string `json:"playUrl" comment:"视频地址"`
     CoverUrl string `json:"coverUrl" comment:"图片地址"`
-    FavoriteCount int64 `json:"favoriteCount" comment:"关注数量"`
+    FavoriteCount int64 `json:"favoriteCount" comment:"点赞数量"`
     CommentCount int64 `json:"commentCount" comment:"评论数量"`
-    Title string `json:"title" comment:"标题"`
+    Title string `json:"title" comment:"视频标题"`
     common.ControlBy
 }
 
@@ -63,12 +61,12 @@ func (s *VideosInsertReq) GetId() interface{} {
 
 type VideosUpdateReq struct {
     Id int `uri:"id" comment:""` // 
-    AuthorId int64 `json:"authorId" comment:"作者ID"`
+    AuthorId int64 `json:"authorId" comment:"作者id"`
     PlayUrl string `json:"playUrl" comment:"视频地址"`
     CoverUrl string `json:"coverUrl" comment:"图片地址"`
-    FavoriteCount int64 `json:"favoriteCount" comment:"关注数量"`
+    FavoriteCount int64 `json:"favoriteCount" comment:"点赞数量"`
     CommentCount int64 `json:"commentCount" comment:"评论数量"`
-    Title string `json:"title" comment:"标题"`
+    Title string `json:"title" comment:"视频标题"`
     common.ControlBy
 }
 
